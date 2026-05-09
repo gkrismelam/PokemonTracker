@@ -40,10 +40,9 @@ function Card() {
 	return (
 		<div className="card-organizer">
 			{pokemonList.map((pokemon) => (
-				<div className="card" key={pokemon.dexNumber} onClick={() => changeCollected(pokemon.dexNumber)}>
+				<div className={`card ${pokemon.collected ? "collected" : "not-collected"}`} key={pokemon.dexNumber} onClick={() => changeCollected(pokemon.dexNumber)}>
 					<h2>{pokemon.name}</h2>
 					<h2>{pokemon.dexNumber}</h2>
-					<h2>{pokemon.collected ? "Collected" : "Not Collected"}</h2>
 					<img className="pokemon-image" src={images[pokemon.image]} alt={pokemon.name} />
 				</div>
 			))}

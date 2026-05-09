@@ -3,6 +3,7 @@ import "../css/Header.css"
 
 function Header( {pokemonList}: HeaderProps ) {
 
+    // Gets total number of collected pokemon in constant
     const totalCollected = pokemonList.reduce((acc, curr) => {
         return acc + (curr.collected ? 1 : 0)
     }, 0)

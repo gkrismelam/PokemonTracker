@@ -1,15 +1,34 @@
+import pokemonData from "./assets/datasets/pokemon.json"
+import type { Pokemon } from "./utils/types"
+import Card from './components/Card';
+import { useState } from 'react';
 import './App.css'; 
-//import { useState } from 'react';
-//import type { Pokemon } from './components/Card';
 
 function App() {
-  //const [pokemonList, setPokemonList] = useState<Pokemon[]>([]);
 
-  return (
-    <div className="App">
-      <h1>Hello World</h1>
-    </div>
-  )
+	const allPokemon: Pokemon[] = Object.keys(pokemonData.pokemon)
+	.filter((key) => Number(key) >= 1 && Number(key) <= 1025)
+	.map((key) => {
+		const p = pokemonData.pokemon[key];
+
+		return {
+			dexNumber: Number(key),
+			name: p.N.charAt(0).toUpperCase() + p.N.slice(1),
+			image: key.padStart(4, "0"),
+			collected: false,
+		};
+	});
+
+	const [pokemonList, setPokemonList] = useState<Pokemon[]>(allPokemon);
+
+	return (
+		<div className="App">
+			<Card 
+				pokemonList={pokemonList}
+				setPokemonList={setPokemonList}
+			/>
+		</div>
+	)
 }
 
 export default App

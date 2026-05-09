@@ -19,14 +19,14 @@ function Card() {
 		});
 	}
 
-	const currentIndex: number = 1024;
+	const currentIndex: number = 1000;
 
 	return (
 		<div>
 			<h2>{pokemonList[currentIndex - 1].name}</h2>
 			<h2>{pokemonList[currentIndex - 1].dexNumber}</h2>
 			<h2>{pokemonList[currentIndex - 1].collected ? "Collected" : "Not Collected"}</h2>
-			<img src={images[pokemonList[currentIndex - 1].image]} alt={pokemonList[currentIndex].name} />
+			<img src={images[pokemonList[currentIndex - 1].image]} alt={pokemonList[currentIndex - 1].name} />
 		</div>
 	);
 }

@@ -53,11 +53,36 @@ function App() {
 
 	// Takes search from Header.tsx based on name and dex number and scrolls to it if found via DOM location
 	function handleSearch(query: string) {
-		const found = pokemonList.find(
-			(p) =>
-				p.name.toLowerCase() === query.toLowerCase() ||
-				p.dexNumber.toString() === query
-		);
+		const q = query.toLowerCase().trim();
+
+		const found = pokemonList
+			.map((p) => {
+				const name = p.name.toLowerCase();
+				const dex = p.dexNumber.toString();
+
+				let score = 0;
+
+				// exact match (best)
+				if (name === q || dex === q) {
+					score = 100;
+				}
+				// starts with match
+				else if (name.startsWith(q)) {
+					score = 80;
+				}
+				// includes match (fuzzy)
+				else if (name.includes(q)) {
+					score = 50;
+				}
+				// dex partial match
+				else if (dex.includes(q)) {
+					score = 40;
+				}
+
+				return { p, score };
+			})
+			.filter((x) => x.score > 0)
+			.sort((a, b) => b.score - a.score)[0]?.p;
 
 		// Scrolls to and highlights pokemon for search
 		if (found) {

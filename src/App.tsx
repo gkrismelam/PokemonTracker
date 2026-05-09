@@ -2,7 +2,7 @@ import pokemonData from "./assets/datasets/pokemon.json"
 import type { Pokemon } from "./utils/types"
 import Card from './components/Card';
 import Header from './components/Header'
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import './App.css'; 
 
 function App() {
@@ -37,14 +37,40 @@ function App() {
 		localStorage.setItem("pokemonList", JSON.stringify(pokemonList));
 	}, [pokemonList]);
 
+	// Create mutable referance for storing location of scroll for each pokemon
+	const pokemonRefs = useRef<Record<number, HTMLDivElement | null>>({});
+
+	//  Finds pokemon and gets dex number to look up DOM node and scrolls to it
+	function scrollToPokemon(dexNumber: number) {
+		const el = pokemonRefs.current[dexNumber];
+		if (el) {
+			el.scrollIntoView({ behavior: "smooth", block: "center" });
+		}
+	}
+
+	// Takes search from Header.tsx based on name and dex number and scrolls to it if found via DOM location
+	function handleSearch(query: string) {
+		const found = pokemonList.find(
+			(p) =>
+				p.name.toLowerCase() === query.toLowerCase() ||
+				p.dexNumber.toString() === query
+		);
+	
+		if (found) {
+			scrollToPokemon(found.dexNumber);
+		}
+	}
+
 	return (
 		<div className="App">
 			<Header
 				pokemonList={pokemonList}
+				onSearch={handleSearch}
 			/>
 			<Card 
 				pokemonList={pokemonList}
 				setPokemonList={setPokemonList}
+				pokemonRefs={pokemonRefs}
 			/>
 		</div>
 	)

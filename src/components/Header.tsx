@@ -15,6 +15,7 @@ function Header( {pokemonList, onSearch}: HeaderProps ) {
     // Sends value stored in search to App.tsx
     function handleSubmit() {
         onSearch(search);
+        setSearch("");
     }
 
     return(
@@ -30,7 +31,7 @@ function Header( {pokemonList, onSearch}: HeaderProps ) {
                     onChange={(e) => setSearch(e.target.value)}
                     onKeyDown={(e) => {
                         if (e.key === "Enter") {
-                            onSearch(search);
+                            handleSubmit();
                         }
                     }}
                     placeholder="Search Pokémon (name or number)"

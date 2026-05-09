@@ -1,6 +1,7 @@
 import pokemonData from "./assets/datasets/pokemon.json"
 import type { Pokemon } from "./utils/types"
 import Card from './components/Card';
+import Header from './components/Header'
 import { useState } from 'react';
 import './App.css'; 
 
@@ -23,6 +24,9 @@ function App() {
 
 	return (
 		<div className="App">
+			<Header
+				pokemonList={pokemonList}
+			/>
 			<Card 
 				pokemonList={pokemonList}
 				setPokemonList={setPokemonList}

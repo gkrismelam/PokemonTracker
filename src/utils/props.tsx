@@ -3,5 +3,9 @@ import type { Pokemon } from "./types";
 
 export type CardProps = {
 	pokemonList: Pokemon[],
-	setPokemonList: Dispatch<SetStateAction<Pokemon[]>>;
+	setPokemonList: Dispatch<SetStateAction<Pokemon[]>>,
+}
+
+export type HeaderProps = {
+    pokemonList: Pokemon[],
 }

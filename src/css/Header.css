@@ -2,16 +2,29 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 12px;
-    padding: 20px;
+    gap: 8px;
+    padding: 14px 20px;
 
     background: #e63946;
     color: white;
     border-bottom: 4px solid #c92a36;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 2rem;
+    letter-spacing: 0.5px;
 }
 
 .subtext {
     margin: 0;
+    font-size: 1rem;
     font-weight: 600;
     color: rgba(255, 255, 255, 0.9);
 }
@@ -19,48 +32,58 @@
 .search-container {
     display: flex;
     gap: 10px;
-    margin-top: 10px;
-}
-
-.header div {
-    display: flex;
-    gap: 10px;
-    margin-top: 10px;
+    margin-top: 4px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .header input {
-    padding: 10px 14px;
-    width: 320px;
+    padding: 9px 14px;
+    width: 280px;
+
     border: none;
     border-radius: 10px;
-    font-size: 14px;
+
+    font-size: 0.95rem;
     outline: none;
+
     transition: all 0.2s ease;
+
     background: rgba(255, 255, 255, 0.95);
 }
 
 .header input:focus {
-    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.4);
+    background: white;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.35);
 }
 
 .header button {
-    padding: 10px 14px;
+    padding: 9px 16px;
+
     border: none;
     border-radius: 10px;
 
     background: white;
     color: #e63946;
+
+    font-size: 0.95rem;
     font-weight: 700;
 
     cursor: pointer;
-    transition: all 0.2s ease;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
 .header button:hover {
-    background: #f1f1f1;
+    background: #f5f5f5;
     transform: translateY(-1px);
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
 }
 
 .header button:active {
-    transform: scale(0.98);
+    transform: scale(0.97);
 }

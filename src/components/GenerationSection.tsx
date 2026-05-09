@@ -2,7 +2,7 @@ import images from "../assets/images";
 import type { GenerationSectionProps } from "../utils/props";
 import "../css/GenerationSection.css"
 
-function GenerationSection( {title, pokemonList, changeCollected, pokemonRefs}: GenerationSectionProps ){
+function GenerationSection( {title, pokemonList, changeCollected, pokemonRefs, highlighted}: GenerationSectionProps ){
 
     // Simplifies Card.tsx to not rewrite each individual generation
     return (
@@ -15,8 +15,8 @@ function GenerationSection( {title, pokemonList, changeCollected, pokemonRefs}: 
                         pokemonRefs.current[pokemon.dexNumber] = el;
                     }}
                     
-                    // Updates visibility depended on collected status
-                    className={`card ${pokemon.collected ? "collected" : "not-collected"}`} 
+                    // Updates visibility depended on collected status and highlighted depnding on its state
+                    className={`card ${pokemon.collected ? "collected" : "not-collected"} ${highlighted === pokemon.dexNumber ? "highlighted" : ""}`} 
                     key={pokemon.dexNumber} 
 
                     // Changed collected status

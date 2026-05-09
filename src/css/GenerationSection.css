@@ -35,6 +35,13 @@
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
+.highlighted {
+    outline: 3px solid #ffd60a;
+    box-shadow: 0 0 20px rgba(255, 214, 10, 0.6);
+    transform: scale(1.05);
+    transition: all 0.2s ease;
+}
+
 .card:hover {
     transform: translateY(-4px) scale(1.05);
 }

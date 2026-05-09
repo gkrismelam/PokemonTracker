@@ -6,6 +6,7 @@ export type CardProps = {
 	pokemonList: Pokemon[],
 	setPokemonList: Dispatch<SetStateAction<Pokemon[]>>,
 	pokemonRefs: React.RefObject<Record<number, HTMLDivElement | null>>;
+	highlighted: number | null;
 }
 
 // Header component props
@@ -20,4 +21,5 @@ export type GenerationSectionProps = {
     pokemonList: Pokemon[];
     changeCollected: (dexNumber: number) => void;
 	pokemonRefs: React.RefObject<Record<number, HTMLDivElement | null>>;
+	highlighted: number | null;
 }

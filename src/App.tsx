@@ -40,6 +40,9 @@ function App() {
 	// Create mutable referance for storing location of scroll for each pokemon
 	const pokemonRefs = useRef<Record<number, HTMLDivElement | null>>({});
 
+	// State for highlighting searched pokemon
+	const [highlighted, setHighlighted] = useState<number | null>(null);
+
 	// Finds pokemon and gets dex number to look up DOM node and scrolls to it
 	function scrollToPokemon(dexNumber: number) {
 		const el = pokemonRefs.current[dexNumber];
@@ -58,11 +61,9 @@ function App() {
 	
 		if (found) {
 			scrollToPokemon(found.dexNumber);
+			setHighlighted(found.dexNumber)
 		}
 	}
-
-	// State for highlighting searched pokemon
-	//const [highlighted, setHighlighted] = useState<number | null>(null);
 
 	return (
 		<div className="App">
@@ -74,6 +75,7 @@ function App() {
 				pokemonList={pokemonList}
 				setPokemonList={setPokemonList}
 				pokemonRefs={pokemonRefs}
+				highlighted={highlighted}
 			/>
 		</div>
 	)

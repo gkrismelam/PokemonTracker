@@ -42,7 +42,7 @@ function Card( {pokemonList, setPokemonList, pokemonRefs, highlighted}: CardProp
 
 			<GenerationSection
 				title="Generation 4: Sinnoh"
-				pokemonList={pokemonList.slice(386, 494)}
+				pokemonList={pokemonList.slice(386, 493)}
 				changeCollected={changeCollected}
 				pokemonRefs={pokemonRefs}
 				highlighted={highlighted}

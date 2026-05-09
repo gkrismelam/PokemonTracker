@@ -58,10 +58,16 @@ function App() {
 				p.name.toLowerCase() === query.toLowerCase() ||
 				p.dexNumber.toString() === query
 		);
-	
+
+		// Scrolls to and highlights pokemon for search
 		if (found) {
 			scrollToPokemon(found.dexNumber);
 			setHighlighted(found.dexNumber)
+
+			// Removes highlight after 2 seconds
+			setTimeout(() => {
+				setHighlighted(null);
+			}, 2000);
 		}
 	}
 

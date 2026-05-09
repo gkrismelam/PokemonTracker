@@ -7,7 +7,7 @@ import './App.css';
 
 function App() {
 
-	// Creates list of Pokemon type from dex numbers 1 to 1025
+	// Creates list of Pokemon type from dex numbers 1 to 1025 with names from pokemon.json
 	const allPokemon: Pokemon[] = Object.keys(pokemonData.pokemon)
 	.filter((key) => Number(key) >= 1 && Number(key) <= 1025)
 	.map((key) => {

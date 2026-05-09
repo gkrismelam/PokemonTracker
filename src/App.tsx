@@ -7,6 +7,7 @@ import './App.css';
 
 function App() {
 
+	// Creates list of Pokemon type from dex numbers 1 to 1025
 	const allPokemon: Pokemon[] = Object.keys(pokemonData.pokemon)
 	.filter((key) => Number(key) >= 1 && Number(key) <= 1025)
 	.map((key) => {
@@ -20,6 +21,7 @@ function App() {
 		};
 	});
 
+	// Sets up useState for list of Pokemon made earlier and also local storage
 	const [pokemonList, setPokemonList] = useState<Pokemon[]>(() => {
 		const saved = localStorage.getItem("pokemonList");
 	
@@ -30,6 +32,7 @@ function App() {
 		return allPokemon;
 	});
 
+	// Saves local storage when state changes
 	useEffect(() => {
 		localStorage.setItem("pokemonList", JSON.stringify(pokemonList));
 	}, [pokemonList]);

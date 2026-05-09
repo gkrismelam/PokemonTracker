@@ -1,20 +1,28 @@
+import bulbasaurImage from "../assets/images/0001.png";
+
 export interface Pokemon {
-    name: string;
-    image: string;
-    dexNumber: number;
-    collected: boolean;
+	dexNumber: number;
+	name: string;
+	image: string;
+	collected: boolean;
 }
 
 function Card() {
-  return (
-    <div className="card">
-      <div className="card-content">
-        <h2 className="card-title">Card Title</h2>
-        <p className="card-description">This is a description of the card content. It provides more details about the card.</p>
-        <button className="card-button">Learn More</button>
-      </div>
-    </div>
-  );
+	const bulbasaur: Pokemon = {
+		dexNumber: 1,
+		name: "Bulbasaur",
+		image: bulbasaurImage,
+		collected: false,
+	};
+
+	return (
+		<div>
+			<h2>{bulbasaur.name}</h2>
+			<h2>{bulbasaur.dexNumber}</h2>
+			<h2>{bulbasaur.collected ? "Collected" : "Not Collected"}</h2>
+			<img src={bulbasaur.image} alt={bulbasaur.name} />
+		</div>
+	);
 }
 
 export default Card;

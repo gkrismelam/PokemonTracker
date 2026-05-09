@@ -1,14 +1,8 @@
 import pokemonData from "./assets/datasets/pokemon.json"
-import { useState } from 'react';
+import type { Pokemon } from "./utils/types"
 import Card from './components/Card';
+import { useState } from 'react';
 import './App.css'; 
-
-export interface Pokemon {
-	dexNumber: number;
-	name: string;
-	image: string;
-	collected: boolean;
-}
 
 function App() {
 

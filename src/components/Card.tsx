@@ -1,21 +1,13 @@
 import images from "../assets/images";
-import type { Pokemon } from "../App.tsx"
-import type { Dispatch, SetStateAction } from "react";
+import type { CardProps } from "../utils/props";
 import "../css/Card.css"
-
-type CardProps = {
-	pokemonList: Pokemon[],
-	setPokemonList: Dispatch<SetStateAction<Pokemon[]>>;
-}
 
 function Card( {pokemonList, setPokemonList}: CardProps ) {
 
 	function changeCollected(dexNumber: number) {
 		setPokemonList((prev) =>
 			prev.map((p) =>
-				p.dexNumber === dexNumber
-					? { ...p, collected: !p.collected }
-					: p
+				p.dexNumber === dexNumber ? { ...p, collected: !p.collected } : p
 			)
 		);
 	}

@@ -1,7 +1,8 @@
 import pokemonData from "./assets/datasets/pokemon.json"
 import type { Pokemon } from "./utils/types"
 import Card from './components/Card';
-import { useState } from 'react';
+import Header from './components/Header'
+import { useState, useEffect } from 'react';
 import './App.css'; 
 
 function App() {
@@ -19,10 +20,25 @@ function App() {
 		};
 	});
 
-	const [pokemonList, setPokemonList] = useState<Pokemon[]>(allPokemon);
+	const [pokemonList, setPokemonList] = useState<Pokemon[]>(() => {
+		const saved = localStorage.getItem("pokemonList");
+	
+		if (saved) {
+			return JSON.parse(saved);
+		}
+	
+		return allPokemon;
+	});
+
+	useEffect(() => {
+		localStorage.setItem("pokemonList", JSON.stringify(pokemonList));
+	}, [pokemonList]);
 
 	return (
 		<div className="App">
+			<Header
+				pokemonList={pokemonList}
+			/>
 			<Card 
 				pokemonList={pokemonList}
 				setPokemonList={setPokemonList}

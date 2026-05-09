@@ -25,12 +25,22 @@ function Card() {
 		};
 	});
 
+	function changeCollected(dexNumber: number) {
+		setPokemonList((prev) =>
+			prev.map((p) =>
+				p.dexNumber === dexNumber
+					? { ...p, collected: !p.collected }
+					: p
+			)
+		);
+	}
+
 	const [pokemonList, setPokemonList] = useState<Pokemon[]>(allPokemon);
 
 	return (
-		<div>
+		<div className="card-organizer">
 			{pokemonList.map((pokemon) => (
-				<div key={pokemon.dexNumber}>
+				<div className="card" key={pokemon.dexNumber} onClick={() => changeCollected(pokemon.dexNumber)}>
 					<h2>{pokemon.name}</h2>
 					<h2>{pokemon.dexNumber}</h2>
 					<h2>{pokemon.collected ? "Collected" : "Not Collected"}</h2>

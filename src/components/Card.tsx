@@ -1,29 +1,14 @@
 import images from "../assets/images";
-import pokemonData from "../assets/datasets/pokemon.json"
-import { useState } from "react";
+import type { Pokemon } from "../App.tsx"
+import type { Dispatch, SetStateAction } from "react";
 import "../css/Card.css"
 
-export interface Pokemon {
-	dexNumber: number;
-	name: string;
-	image: string;
-	collected: boolean;
+type CardProps = {
+	pokemonList: Pokemon[],
+	setPokemonList: Dispatch<SetStateAction<Pokemon[]>>;
 }
 
-function Card() {
-	
-	const allPokemon: Pokemon[] = Object.keys(pokemonData.pokemon)
-	.filter((key) => Number(key) >= 1 && Number(key) <= 1025)
-	.map((key) => {
-		const p = pokemonData.pokemon[key];
-
-		return {
-			dexNumber: Number(key),
-			name: p.N.charAt(0).toUpperCase() + p.N.slice(1),
-			image: key.padStart(4, "0"),
-			collected: false,
-		};
-	});
+function Card( {pokemonList, setPokemonList}: CardProps ) {
 
 	function changeCollected(dexNumber: number) {
 		setPokemonList((prev) =>
@@ -34,8 +19,6 @@ function Card() {
 			)
 		);
 	}
-
-	const [pokemonList, setPokemonList] = useState<Pokemon[]>(allPokemon);
 
 	return (
 		<div className="card-organizer">

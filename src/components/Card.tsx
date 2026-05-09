@@ -4,6 +4,7 @@ import "../css/Card.css"
 
 function Card( {pokemonList, setPokemonList}: CardProps ) {
 
+	// Function that changes collected status to inverse called on clicking each card
 	function changeCollected(dexNumber: number) {
 		setPokemonList((prev) =>
 			prev.map((p) =>

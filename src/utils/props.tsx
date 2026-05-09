@@ -11,3 +11,10 @@ export type CardProps = {
 export type HeaderProps = {
     pokemonList: Pokemon[],
 }
+
+// Generation Section component props
+export type GenerationSectionProps = {
+	title: string;
+    pokemonList: Pokemon[];
+    changeCollected: (dexNumber: number) => void;
+}

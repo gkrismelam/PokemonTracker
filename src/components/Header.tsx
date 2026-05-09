@@ -25,7 +25,7 @@ function Header( {pokemonList, onSearch}: HeaderProps ) {
                 Collected: {totalCollected}/{pokemonList.length}
             </h2>
 
-            <div>
+            <div className="search-container">
                 <input
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}

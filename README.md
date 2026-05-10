@@ -1,73 +1,92 @@
-# React + TypeScript + Vite
+# Pokémon Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React + TypeScript web application for tracking collected Pokémon across all 9 current generations.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+* Track collected Pokémon from Generations 1–9 in a card layout
+* Search Pokémon by:
+  * Name
+  * Pokédex number
+  * Partial/fuzzy matching
+* Smooth scrolling to searched Pokémon and animated highlight effect
+* Local storage support to preserve collection progress
+* GitHub Pages deployment support
 
-## React Compiler
+## Technologies Used
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* React
+* TypeScript
+* Vite
+* CSS
+* GitHub Pages
 
-## Expanding the ESLint configuration
+## Installation
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Clone the repository:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+git clone https://github.com/gkrismelam/PokemonTracker.git
+cd PokemonTracker
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Install dependencies:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
+
+Run the development server:
+
+```bash
+npm run dev
+```
+
+Open the local development URL shown in the terminal.
+
+## Build for Production
+
+```bash
+npm run build
+```
+
+## Deploy to GitHub Pages
+
+```bash
+npm run deploy
+```
+
+## Search Functionality
+
+The search bar supports:
+
+* Exact name matches
+* Pokédex number matches
+* Partial/fuzzy searching
+
+Examples:
+
+* `pikachu`
+* `pika`
+* `25`
+
+## Local Storage
+
+Collection progress is automatically saved in the browser using local storage.
+
+No account or database is required.
+
+## Future Improvements
+
+Potential future additions:
+
+* Filters by generation
+* Type filtering
+* Shiny collection tracking
+* Dark mode
+* Sorting options
+* Collection statistics
+
+## License
+
+This project is for educational and personal use.

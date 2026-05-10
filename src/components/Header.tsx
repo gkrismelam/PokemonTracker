@@ -20,7 +20,7 @@ function Header( {pokemonList, onSearch}: HeaderProps ) {
 
     return(
         <div className="header">
-            <h1>Pokemon Tracker</h1>
+            <h1>Pokémon Tracker</h1>
             <h2 className="subtext">
                 Collected: {totalCollected}/{pokemonList.length}
             </h2>
@@ -41,6 +41,7 @@ function Header( {pokemonList, onSearch}: HeaderProps ) {
                     Search
                 </button>
             </div>
+            <div className="pokeball-decoration" />
         </div>
     )
 }

@@ -18,6 +18,55 @@ function Header( {pokemonList, onSearch}: HeaderProps ) {
         setSearch("");
     }
 
+    function exportSave() {
+        const dataStr = JSON.stringify(pokemonList, null, 2);
+    
+        const blob = new Blob([dataStr], {
+            type: "application/json",
+        });
+    
+        const url = URL.createObjectURL(blob);
+    
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = "pokemon-tracker-save.json";
+    
+        link.click();
+    
+        URL.revokeObjectURL(url);
+    }
+
+    function importSave(event: React.ChangeEvent<HTMLInputElement>) {
+        const file = event.target.files?.[0];
+    
+        if (!file) {
+            return;
+        }
+    
+        const reader = new FileReader();
+    
+        reader.onload = (e) => {
+            try {
+                const importedData = JSON.parse(
+                    e.target?.result as string
+                );
+    
+                localStorage.setItem(
+                    "pokemonList",
+                    JSON.stringify(importedData)
+                );
+    
+                window.location.reload();
+            } 
+            
+            catch {
+                alert("Invalid save file.");
+            }
+        };
+    
+        reader.readAsText(file);
+    }
+
     return(
         <div className="header">
             <h1>Pokémon Tracker</h1>
@@ -25,21 +74,39 @@ function Header( {pokemonList, onSearch}: HeaderProps ) {
                 Collected: {totalCollected}/{pokemonList.length}
             </h2>
 
-            <div className="search-container">
-                <input
-                    value={search}
-                    onChange={(e) => setSearch(e.target.value)}
-                    onKeyDown={(e) => {
-                        if (e.key === "Enter") {
-                            handleSubmit();
-                        }
-                    }}
-                    placeholder="Search Pokémon (name or number)"
-                />
+            <div className="header-row">
+                <div className="search-center">
+                    <input
+                        value={search}
+                        onChange={(e) => setSearch(e.target.value)}
+                        onKeyDown={(e) => {
+                            if (e.key === "Enter") {
+                                handleSubmit();
+                            }
+                        }}
+                        placeholder="Search Pokémon (name or number)"
+                    />
 
-                <button onClick={handleSubmit}>
-                    Search
-                </button>
+                    <button onClick={handleSubmit}>
+                        Search
+                    </button>
+                </div>
+
+                <div className="save-controls">
+                    <button onClick={exportSave}>
+                        Export
+                    </button>
+
+                    <label className="import-button">
+                        Import
+                        <input
+                            type="file"
+                            accept=".json"
+                            onChange={importSave}
+                            hidden
+                        />
+                    </label>
+                </div>
             </div>
             <div className="pokeball-decoration" />
         </div>

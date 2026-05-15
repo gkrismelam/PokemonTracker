@@ -4,4 +4,6 @@ export interface Pokemon {
 	name: string;
 	image: string;
     collected: boolean;
+	typeOne: string;
+	typeTwo: string;
 }

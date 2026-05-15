@@ -18,6 +18,8 @@ function App() {
 			name: p.N.charAt(0).toUpperCase() + p.N.slice(1),
 			image: key.padStart(4, "0"),
 			collected: false,
+			typeOne: p.T[0].n,
+			typeTwo: p.T[1]?.n ?? "",
 		};
 	});
 

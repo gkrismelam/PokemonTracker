@@ -1,4 +1,4 @@
-import images from "../assets/images";
+import images from "../assets/images/index";
 import type { GenerationSectionProps } from "../utils/props";
 import "../css/GenerationSection.css"
 

@@ -6,7 +6,6 @@ import { useState, useEffect, useRef } from 'react';
 import './App.css'; 
 
 function App() {
-
 	// Creates list of Pokemon type from dex numbers 1 to 1025 with names from pokemon.json
 	const allPokemon: Pokemon[] = Object.keys(pokemonData.pokemon)
 	.filter((key) => Number(key) >= 1 && Number(key) <= 1025)
@@ -24,20 +23,20 @@ function App() {
 	});
 
 	// Sets up useState for list of Pokemon made earlier and also local storage
-	const [pokemonList, setPokemonList] = useState<Pokemon[]>(() => {
-		const saved = localStorage.getItem("pokemonList");
-	
-		if (saved) {
-			return JSON.parse(saved);
-		}
-	
-		return allPokemon;
+	const [collected, setCollected] = useState<Record<number, boolean>>(() => {
+		const saved = localStorage.getItem("collected");
+		return saved ? JSON.parse(saved) : {};
 	});
 
 	// Saves local storage when state changes
 	useEffect(() => {
-		localStorage.setItem("pokemonList", JSON.stringify(pokemonList));
-	}, [pokemonList]);
+		localStorage.setItem("collected", JSON.stringify(collected));
+	}, [collected]);
+
+	const pokemonList: Pokemon[] = allPokemon.map(p => ({
+		...p,
+		collected: collected[p.dexNumber] ?? false,
+	}));
 
 	// Create mutable referance for storing location of scroll for each pokemon
 	const pokemonRefs = useRef<Record<number, HTMLDivElement | null>>({});
@@ -106,7 +105,7 @@ function App() {
 			/>
 			<Card 
 				pokemonList={pokemonList}
-				setPokemonList={setPokemonList}
+				setCollected={setCollected}
 				pokemonRefs={pokemonRefs}
 				highlighted={highlighted}
 			/>

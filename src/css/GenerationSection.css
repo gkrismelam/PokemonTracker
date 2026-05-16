@@ -29,8 +29,122 @@
     border: 1px solid #eee;
 }
 
+.card:hover {
+    transform: translateY(-4px) scale(1.05);
+}
+
+.card h2 {
+    font-size: 0.95rem;
+    margin: 4px 0;
+    line-height: 1.2;
+}
+
+.pokemon-image {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+/* Base */
+.type-icon {
+    width: 20px;
+    height: 20px;
+    padding: 1px;
+    object-fit: contain;
+}
+
+/* Normal: #A8A77A */
+.type-icon.normal {
+    filter: brightness(0.7) sepia(0.3) saturate(1.2) hue-rotate(10deg);
+}
+
+/* Fire: #EE8130 */
+.type-icon.fire {
+    filter: brightness(0.7) sepia(1) saturate(3) hue-rotate(-15deg);
+}
+
+/* Water: #6390F0 */
+.type-icon.water {
+    filter: brightness(0.55) sepia(1) saturate(4) hue-rotate(170deg);
+}
+
+/* Electric: #F7D02C */
+.type-icon.electric {
+    filter: brightness(0.8) sepia(1) saturate(2.5) hue-rotate(-30deg);
+}
+
+/* Grass: #7AC74C */
+.type-icon.grass {
+    filter: brightness(0.6) sepia(0.8) saturate(2) hue-rotate(50deg);
+}
+
+/* Ice: #96D9D6 */
+.type-icon.ice {
+    filter: brightness(0.75) sepia(0.4) saturate(1.5) hue-rotate(140deg);
+}
+
+/* Fighting: #C22E28 */
+.type-icon.fighting {
+    filter: brightness(0.55) sepia(1) saturate(5) hue-rotate(-20deg);
+}
+
+/* Poison: #A33EA1 */
+.type-icon.poison {
+    filter: brightness(0.5) sepia(1) saturate(3) hue-rotate(240deg);
+}
+
+/* Ground: #E2BF65 */
+.type-icon.ground {
+    filter: brightness(0.7) sepia(0.7) saturate(1.5) hue-rotate(20deg);
+}
+
+/* Flying: #A98FF3 */
+.type-icon.flying {
+    filter: brightness(0.65) sepia(0.6) saturate(1.8) hue-rotate(200deg);
+}
+
+/* Psychic: #F95587 */
+.type-icon.psychic {
+    filter: brightness(0.75) sepia(1) saturate(2.5) hue-rotate(280deg);
+}
+
+/* Bug: #A6B91A */
+.type-icon.bug {
+    filter: brightness(0.6) sepia(0.9) saturate(2) hue-rotate(40deg);
+}
+
+/* Rock: #B6A136 */
+.type-icon.rock {
+    filter: brightness(0.65) sepia(0.8) saturate(1.5) hue-rotate(15deg);
+}
+
+/* Ghost: #735797 */
+.type-icon.ghost {
+    filter: brightness(0.45) sepia(0.7) saturate(1.8) hue-rotate(250deg);
+}
+
+/* Dragon: #6F35FC */
+.type-icon.dragon {
+    filter: brightness(0.5) sepia(1) saturate(4) hue-rotate(220deg);
+}
+
+/* Dark: #705746 */
+.type-icon.dark {
+    filter: brightness(0.35) sepia(0.5) saturate(1.2) hue-rotate(20deg);
+}
+
+/* Steel: #B7B7CE */
+.type-icon.steel {
+    filter: brightness(0.7) sepia(0.2) saturate(1) hue-rotate(180deg);
+}
+
+/* Fairy: #D685AD */
+.type-icon.fairy {
+    filter: brightness(0.7) sepia(0.6) saturate(1.5) hue-rotate(280deg);
+}
+
 .not-collected {
-    filter: grayscale(.8);
+    filter: grayscale(0.8);
     opacity: 0.6;
 }
 
@@ -44,15 +158,13 @@
     outline: 3px solid #ffd60a;
     box-shadow: 0 0 25px rgba(255, 214, 10, 0.7);
     transform: scale(1.05);
-    transition: all 0.2s ease;
-
     animation: pulse 0.6s ease-in-out 3;
 }
 
 @keyframes pulse {
     0% {
         transform: scale(1);
-        box-shadow: 0 0 0 rgba(255, 214, 10, 0.0);
+        box-shadow: 0 0 0 rgba(255, 214, 10, 0);
     }
     50% {
         transform: scale(1.08);
@@ -62,14 +174,4 @@
         transform: scale(1.05);
         box-shadow: 0 0 25px rgba(255, 214, 10, 0.7);
     }
-}
-
-.card:hover {
-    transform: translateY(-4px) scale(1.05);
-}
-
-.pokemon-image {
-    width: 80px;
-    height: 80px;
-    object-fit: contain;
 }

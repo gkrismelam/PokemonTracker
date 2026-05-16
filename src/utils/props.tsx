@@ -4,7 +4,7 @@ import type { Pokemon } from "./types";
 // Card component props
 export type CardProps = {
 	pokemonList: Pokemon[],
-	setPokemonList: Dispatch<SetStateAction<Pokemon[]>>,
+	setCollected: Dispatch<SetStateAction<Record<number, boolean>>>;
 	pokemonRefs: React.RefObject<Record<number, HTMLDivElement | null>>;
 	highlighted: number | null;
 }

@@ -88,9 +88,9 @@
     filter: brightness(0.55) sepia(1) saturate(5) hue-rotate(-20deg);
 }
 
-/* Poison: #A33EA1 */
+/* Poison: #ae02ca */
 .type-icon.poison {
-    filter: brightness(0.5) sepia(1) saturate(3) hue-rotate(240deg);
+    filter: invert(28%) sepia(92%) saturate(6000%) hue-rotate(275deg) brightness(0.95);
 }
 
 /* Ground: #E2BF65 */
@@ -118,14 +118,14 @@
     filter: brightness(0.65) sepia(0.8) saturate(1.5) hue-rotate(15deg);
 }
 
-/* Ghost: #735797 */
+/* Ghost: #55307b */
 .type-icon.ghost {
-    filter: brightness(0.45) sepia(0.7) saturate(1.8) hue-rotate(250deg);
+    filter: invert(14%) sepia(70%) saturate(2500%) hue-rotate(235deg) brightness(0.8);
 }
 
-/* Dragon: #6F35FC */
+/* Dragon: #6623ed */
 .type-icon.dragon {
-    filter: brightness(0.5) sepia(1) saturate(4) hue-rotate(220deg);
+    filter: invert(30%) sepia(95%) saturate(5000%) hue-rotate(245deg) brightness(1.05);
 }
 
 /* Dark: #705746 */

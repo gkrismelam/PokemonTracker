@@ -19,6 +19,8 @@ function App() {
 			collected: false,
 			typeOne: p.T[0].n,
 			typeTwo: p.T[1]?.n ?? "",
+			set: "",
+			rarity: "",
 		};
 	});
 

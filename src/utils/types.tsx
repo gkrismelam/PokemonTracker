@@ -6,4 +6,6 @@ export interface Pokemon {
     collected: boolean;
 	typeOne: string;
 	typeTwo: string;
+	set: string;
+	rarity: string;
 }

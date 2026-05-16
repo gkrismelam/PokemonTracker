@@ -25,20 +25,17 @@ function App() {
 	});
 
 	// Sets up useState for list of Pokemon made earlier and also local storage
-	const [collected, setCollected] = useState<Record<number, boolean>>(() => {
-		const saved = localStorage.getItem("collected");
-		return saved ? JSON.parse(saved) : {};
+	const [pokemonState, setPokemonState] = useState<Pokemon[]>(() => {
+		const saved = localStorage.getItem("pokemonState");
+		return saved ? JSON.parse(saved) : allPokemon;
 	});
 
 	// Saves local storage when state changes
 	useEffect(() => {
-		localStorage.setItem("collected", JSON.stringify(collected));
-	}, [collected]);
+		localStorage.setItem("pokemonState", JSON.stringify(pokemonState));
+	}, [pokemonState]);
 
-	const pokemonList: Pokemon[] = allPokemon.map(p => ({
-		...p,
-		collected: collected[p.dexNumber] ?? false,
-	}));
+	const pokemonList: Pokemon[] = pokemonState;
 
 	// Create mutable referance for storing location of scroll for each pokemon
 	const pokemonRefs = useRef<Record<number, HTMLDivElement | null>>({});
@@ -99,15 +96,21 @@ function App() {
 		}
 	}
 
+	function clearSave() {
+		setPokemonState(allPokemon);
+		localStorage.removeItem("pokemonState");
+	}
+
 	return (
 		<div className="App">
 			<Header
 				pokemonList={pokemonList}
 				onSearch={handleSearch}
+				onClear={clearSave}
 			/>
 			<Card 
 				pokemonList={pokemonList}
-				setCollected={setCollected}
+				setPokemonState={setPokemonState}
 				pokemonRefs={pokemonRefs}
 				highlighted={highlighted}
 			/>

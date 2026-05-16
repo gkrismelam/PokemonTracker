@@ -2,16 +2,18 @@ import type { CardProps } from "../utils/props";
 import GenerationSection from "./GenerationSection";
 import "../css/Card.css"
 
-function Card( {pokemonList, setCollected, pokemonRefs, highlighted}: CardProps ) {
+function Card( {pokemonList, setPokemonState, pokemonRefs, highlighted}: CardProps ) {
 
 	// Function that changes collected status to inverse called on clicking each card
 	function changeCollected(dexNumber: number) {
-		setCollected((prev) => ({
-			...prev,
-			[dexNumber]: !prev[dexNumber],
-		}));
+		setPokemonState((prev) =>
+			prev.map((p) =>
+				p.dexNumber === dexNumber
+					? { ...p, collected: !p.collected }
+					: p
+			)
+		);
 	}
-
 	return (
 		<div className="container">
 

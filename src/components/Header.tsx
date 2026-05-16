@@ -1,8 +1,9 @@
 import type { HeaderProps } from "../utils/props";
 import { useState } from "react";
+import type { Pokemon } from "../utils/types";
 import "../css/Header.css"
 
-function Header( {pokemonList, onSearch}: HeaderProps ) {
+function Header( {pokemonList, onSearch, onClear}: HeaderProps ) {
 
     // The state for storing the value inside the search bar
     const [search, setSearch] = useState("");
@@ -39,32 +40,34 @@ function Header( {pokemonList, onSearch}: HeaderProps ) {
     function importSave(event: React.ChangeEvent<HTMLInputElement>) {
         const file = event.target.files?.[0];
     
-        if (!file) {
-            return;
-        }
+        if (!file) return;
     
         const reader = new FileReader();
     
         reader.onload = (e) => {
             try {
-                const importedData = JSON.parse(
+                const importedData: Pokemon[] = JSON.parse(
                     e.target?.result as string
                 );
     
                 localStorage.setItem(
-                    "pokemonList",
+                    "pokemonState",
                     JSON.stringify(importedData)
                 );
     
                 window.location.reload();
-            } 
-            
-            catch {
+            } catch {
                 alert("Invalid save file.");
             }
         };
     
         reader.readAsText(file);
+    }
+
+    function handleClear() {
+        if (confirm("Reset all Pokémon progress?")) {
+            onClear();
+        }
     }
 
     return(
@@ -106,6 +109,10 @@ function Header( {pokemonList, onSearch}: HeaderProps ) {
                             hidden
                         />
                     </label>
+
+                    <button onClick={handleClear}>
+                        Clear
+                    </button>
                 </div>
             </div>
             <div className="pokeball-decoration" />

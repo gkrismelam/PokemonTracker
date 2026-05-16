@@ -4,7 +4,7 @@ import type { Pokemon } from "./types";
 // Card component props
 export type CardProps = {
 	pokemonList: Pokemon[],
-	setCollected: Dispatch<SetStateAction<Record<number, boolean>>>;
+	setPokemonState: Dispatch<SetStateAction<Pokemon[]>>,
 	pokemonRefs: React.RefObject<Record<number, HTMLDivElement | null>>;
 	highlighted: number | null;
 }
@@ -13,6 +13,7 @@ export type CardProps = {
 export type HeaderProps = {
     pokemonList: Pokemon[],
 	onSearch: (query: string) => void;
+	onClear: () => void;
 }
 
 // Generation Section component props

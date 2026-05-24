@@ -1,6 +1,6 @@
 import pokemonData from "./assets/datasets/pokemon.json"
 import type { Pokemon } from "./utils/types"
-import Card from './components/Card';
+import Cards from './components/Cards';
 import Header from './components/Header'
 import { useState, useEffect, useRef } from 'react';
 import './App.css'; 
@@ -108,7 +108,7 @@ function App() {
 				onSearch={handleSearch}
 				onClear={clearSave}
 			/>
-			<Card 
+			<Cards 
 				pokemonList={pokemonList}
 				setPokemonState={setPokemonState}
 				pokemonRefs={pokemonRefs}

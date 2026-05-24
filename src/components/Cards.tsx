@@ -2,7 +2,7 @@ import type { CardProps } from "../utils/props";
 import GenerationSection from "./GenerationSection";
 import "../css/Card.css"
 
-function Card( {pokemonList, setPokemonState, pokemonRefs, highlighted}: CardProps ) {
+function Cards( {pokemonList, setPokemonState, pokemonRefs, highlighted}: CardProps ) {
 
 	// Function that changes collected status to inverse called on clicking each card
 	function changeCollected(dexNumber: number) {
@@ -93,4 +93,4 @@ function Card( {pokemonList, setPokemonState, pokemonRefs, highlighted}: CardPro
 	);
 }
 
-export default Card;
+export default Cards;

@@ -3,8 +3,8 @@ import types from "../assets/type-icons/typeIndex"
 import type { GenerationSectionProps } from "../utils/props";
 import "../css/GenerationSection.css"
 
-// Simplifies Card.tsx to not rewrite each individual generation
 function GenerationSection({ title, pokemonList, changeCollected, pokemonRefs, highlighted }: GenerationSectionProps) {
+    // Simplifies Card.tsx to not rewrite each individual generation
     return (
         <div className="generation-section">
             <h1>{title}</h1>
@@ -43,7 +43,6 @@ function GenerationSection({ title, pokemonList, changeCollected, pokemonRefs, h
                                     <p>{pokemon.name}</p>
                                     <p>Set: {pokemon.set}</p>
                                     <p>Rarity: {pokemon.rarity}</p>
-                                    <p>Status: {pokemon.collected ? "Collected" : "Missing"}</p>
                                 </div>
 
                             </div>

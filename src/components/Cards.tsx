@@ -2,7 +2,7 @@ import type { CardProps } from "../utils/props";
 import GenerationSection from "./GenerationSection";
 import "../css/Card.css"
 
-function Cards( {pokemonList, setPokemonState, pokemonRefs, highlighted}: CardProps ) {
+function Cards( {pokemonList, setPokemonState, pokemonRefs, highlighted, tcgEnabled}: CardProps ) {
 
 	// Function that changes collected status to inverse called on clicking each card
 	function changeCollected(dexNumber: number) {
@@ -23,6 +23,7 @@ function Cards( {pokemonList, setPokemonState, pokemonRefs, highlighted}: CardPr
 				changeCollected={changeCollected}
 				pokemonRefs={pokemonRefs}
 				highlighted={highlighted}
+				tcgEnabled={tcgEnabled}
 			/>
 
 			<GenerationSection
@@ -31,6 +32,7 @@ function Cards( {pokemonList, setPokemonState, pokemonRefs, highlighted}: CardPr
 				changeCollected={changeCollected}
 				pokemonRefs={pokemonRefs}
 				highlighted={highlighted}
+				tcgEnabled={tcgEnabled}
 			/>
 
 			<GenerationSection
@@ -39,6 +41,7 @@ function Cards( {pokemonList, setPokemonState, pokemonRefs, highlighted}: CardPr
 				changeCollected={changeCollected}
 				pokemonRefs={pokemonRefs}
 				highlighted={highlighted}
+				tcgEnabled={tcgEnabled}
 			/>
 
 			<GenerationSection
@@ -47,6 +50,7 @@ function Cards( {pokemonList, setPokemonState, pokemonRefs, highlighted}: CardPr
 				changeCollected={changeCollected}
 				pokemonRefs={pokemonRefs}
 				highlighted={highlighted}
+				tcgEnabled={tcgEnabled}
 			/>
 
 			<GenerationSection
@@ -55,6 +59,7 @@ function Cards( {pokemonList, setPokemonState, pokemonRefs, highlighted}: CardPr
 				changeCollected={changeCollected}
 				pokemonRefs={pokemonRefs}
 				highlighted={highlighted}
+				tcgEnabled={tcgEnabled}
 			/>
 
 			<GenerationSection
@@ -63,6 +68,7 @@ function Cards( {pokemonList, setPokemonState, pokemonRefs, highlighted}: CardPr
 				changeCollected={changeCollected}
 				pokemonRefs={pokemonRefs}
 				highlighted={highlighted}
+				tcgEnabled={tcgEnabled}
 			/>
 
 			<GenerationSection
@@ -71,6 +77,7 @@ function Cards( {pokemonList, setPokemonState, pokemonRefs, highlighted}: CardPr
 				changeCollected={changeCollected}
 				pokemonRefs={pokemonRefs}
 				highlighted={highlighted}
+				tcgEnabled={tcgEnabled}
 			/>
 
 			<GenerationSection
@@ -79,6 +86,7 @@ function Cards( {pokemonList, setPokemonState, pokemonRefs, highlighted}: CardPr
 				changeCollected={changeCollected}
 				pokemonRefs={pokemonRefs}
 				highlighted={highlighted}
+				tcgEnabled={tcgEnabled}
 			/>
 
 			<GenerationSection
@@ -87,6 +95,7 @@ function Cards( {pokemonList, setPokemonState, pokemonRefs, highlighted}: CardPr
 				changeCollected={changeCollected}
 				pokemonRefs={pokemonRefs}
 				highlighted={highlighted}
+				tcgEnabled={tcgEnabled}
 			/>
 
 		</div>

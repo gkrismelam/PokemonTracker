@@ -3,13 +3,10 @@ import { useState } from "react";
 import type { Pokemon } from "../utils/types";
 import "../css/Header.css"
 
-function Header( {pokemonList, onSearch, onClear}: HeaderProps ) {
+function Header( {pokemonList, onSearch, onClear, tcgEnabled, setTcgEnabled}: HeaderProps ) {
 
     // The state for storing the value inside the search bar
     const [search, setSearch] = useState("");
-
-    // The state for TCG toggle
-    const [tcgEnabled, setTcgEnabled] = useState(false);
 
     // Gets total number of collected pokemon in constant
     const totalCollected = pokemonList.reduce((acc, curr) => {

@@ -43,6 +43,9 @@ function App() {
 	// State for highlighting searched pokemon
 	const [highlighted, setHighlighted] = useState<number | null>(null);
 
+	// The state for TCG toggle
+	const [tcgEnabled, setTcgEnabled] = useState(false);
+
 	// Finds pokemon and gets dex number to look up DOM node and scrolls to it
 	function scrollToPokemon(dexNumber: number) {
 		const el = pokemonRefs.current[dexNumber];
@@ -107,12 +110,15 @@ function App() {
 				pokemonList={pokemonList}
 				onSearch={handleSearch}
 				onClear={clearSave}
+				tcgEnabled={tcgEnabled}
+				setTcgEnabled={setTcgEnabled}
 			/>
 			<Cards 
 				pokemonList={pokemonList}
 				setPokemonState={setPokemonState}
 				pokemonRefs={pokemonRefs}
 				highlighted={highlighted}
+				tcgEnabled={tcgEnabled}
 			/>
 		</div>
 	)

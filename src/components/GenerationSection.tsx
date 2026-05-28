@@ -3,7 +3,7 @@ import types from "../assets/type-icons/typeIndex"
 import type { GenerationSectionProps } from "../utils/props";
 import "../css/GenerationSection.css"
 
-function GenerationSection({ title, pokemonList, changeCollected, pokemonRefs, highlighted }: GenerationSectionProps) {
+function GenerationSection({ title, pokemonList, changeCollected, pokemonRefs, highlighted, tcgEnabled }: GenerationSectionProps) {
     // Simplifies Card.tsx to not rewrite each individual generation
     return (
         <div className="generation-section">
@@ -17,11 +17,12 @@ function GenerationSection({ title, pokemonList, changeCollected, pokemonRefs, h
                                 pokemonRefs.current[pokemon.dexNumber] = el;
                             }}
                             style={{ "--i": index } as React.CSSProperties}
-                            className={`card ${pokemon.collected ? "collected" : "not-collected"} ${highlighted === pokemon.dexNumber ? "highlighted" : ""}`}
+                            className={`card ${pokemon.collected ? "collected" : "not-collected"} ${tcgEnabled ? "tcg-enabled" : ""} ${highlighted === pokemon.dexNumber ? "highlighted" : ""}`}
                             key={pokemon.dexNumber}
                             onClick={() => changeCollected(pokemon.dexNumber)}
                         >
-                            <div className={`card-inner ${pokemon.collected ? "flipped" : ""}`}>
+                            <div
+                                className={`card-inner ${pokemon.collected ? "flipped" : "" }`}>
 
                                 {/* FRONT */}
                                 <div className="card-front">

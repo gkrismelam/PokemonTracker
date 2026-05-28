@@ -39,7 +39,7 @@
     transform: translateY(-4px) scale(1.03);
 }
 
-.card.collected:hover .card-inner {
+.card.collected.tcg-enabled:hover .card-inner {
     transform: rotateY(180deg);
 }
 

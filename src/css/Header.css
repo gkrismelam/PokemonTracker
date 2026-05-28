@@ -37,6 +37,88 @@
     margin-top: 6px;
 }
 
+/* TCG Toggle Container */
+.tcg-toggle {
+    position: absolute;
+    top: 18px;
+    left: 20px;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 8px 14px;
+
+    background: white;
+    border-radius: 10px;
+
+    color: #e63946;
+    font-weight: 700;
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+/* Switch */
+.switch {
+    position: relative;
+
+    display: inline-block;
+
+    width: 48px;
+    height: 24px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* Slider Track */
+.slider {
+    position: absolute;
+    inset: 0;
+
+    cursor: pointer;
+
+    background-color: #cfcfcf;
+
+    transition: 0.25s ease;
+
+    border-radius: 999px;
+}
+
+/* Slider Circle */
+.slider::before {
+    content: "";
+
+    position: absolute;
+
+    width: 18px;
+    height: 18px;
+
+    left: 3px;
+    top: 3px;
+
+    background: white;
+
+    border-radius: 50%;
+
+    transition: 0.25s ease;
+
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Enabled State */
+.switch input:checked + .slider {
+    background-color: #e63946;
+}
+
+/* Move Circle */
+.switch input:checked + .slider::before {
+    transform: translateX(24px);
+}
+
 /* Center search perfectly */
 .search-center {
     display: flex;

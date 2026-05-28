@@ -8,6 +8,9 @@ function Header( {pokemonList, onSearch, onClear}: HeaderProps ) {
     // The state for storing the value inside the search bar
     const [search, setSearch] = useState("");
 
+    // The state for TCG toggle
+    const [tcgEnabled, setTcgEnabled] = useState(false);
+
     // Gets total number of collected pokemon in constant
     const totalCollected = pokemonList.reduce((acc, curr) => {
         return acc + (curr.collected ? 1 : 0)
@@ -72,12 +75,27 @@ function Header( {pokemonList, onSearch, onClear}: HeaderProps ) {
 
     return(
         <div className="header">
+
             <h1>Pokémon Tracker</h1>
+
             <h2 className="subtext">
                 Collected: {totalCollected}/{pokemonList.length}
             </h2>
 
             <div className="header-row">
+                <div className="tcg-toggle">
+                    <span>TCG</span>
+
+                    <label className="switch">
+                        <input
+                            type="checkbox"
+                            checked={tcgEnabled}
+                            onChange={() => setTcgEnabled(!tcgEnabled)}
+                        />
+                        <span className="slider"></span>
+                    </label>
+                </div>
+
                 <div className="search-center">
                     <input
                         value={search}
